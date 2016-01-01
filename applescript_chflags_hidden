@@ -1,0 +1,7 @@
+on run {input, parameters}
+	set filehide1 to {}
+	repeat with filehide2 in input
+		set end of filehide1 to POSIX path of filehide2
+	end repeat
+	do shell script "chflags hidden " & quote & filehide1 & quote with administrator privileges
+end run
